@@ -1,0 +1,10 @@
+{
+  "name": "pulley-test",
+  "version": "0.0.1",
+  "description": "Test repository for Pulley",
+  "main": "index.js",
+  "repository": "git@github.com:mdbarr/pulley-test.git",
+  "author": "Mark Barr <mark@hyperingenuity.com>",
+  "license": "MIT",
+  "private": false
+}
