@@ -17,7 +17,22 @@ function factorial_i(number) {
   return factorial;
 }
 
-for (let i = 1; i <= 20; i++) {
-  console.log(`Factorial   ${ i } = ${ factorial(i) }`);
-  console.log(`Factorial_i ${ i } = ${ factorial_i(i) }`);
+function stopwatch(func, value) {
+  const start = Date.now();
+
+  const result = func.apply(this, [ value ]);
+
+  const time = Date.now() - start;
+
+  console.log(time, start, Date.now());
+
+  return [ result, time ];
+}
+
+for (let i = 1; i <= 2000; i++) {
+  const [ resultR, timeR ] = stopwatch(factorial, i);
+  const [ resultI, timeI ] = stopwatch(factorial, i);
+
+  console.log(`Factorial   ${ i } = ${ resultR } (${ timeR }ms)`);
+  console.log(`Factorial_i ${ i } = ${ resultI } (${ timeI }ms)`);
 }
