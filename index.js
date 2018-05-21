@@ -3,12 +3,18 @@
 
 function factorial(number) {
   let result = 1;
-  for (let i = 2; i <= number; i++) {
-    result *= i;
+  let chain = Promise.resolve();
+  for (let i = number; i >= 1; i--) {
+    chain = chain.then(function() {
+      return result *= i;
+    });
   }
-  return result;
+  return chain;
 }
 
 for (let i = 1; i <= 150; i++) {
-  console.log(`Factorial ${ i } = ${ factorial(i) }`);
+  factorial(i).
+    then(function(result) {
+      console.log(`Factorial ${ i } = ${ result }`);
+    });
 }
