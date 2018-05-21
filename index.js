@@ -12,9 +12,8 @@ function factorial(number) {
   return chain;
 }
 
-for (let i = 1; i <= 150; i++) {
-  factorial(i).
-    then(function(result) {
-      console.log(`Factorial ${ i } = ${ result }`);
-    });
-}
+let number = 50000;
+factorial(number).
+  then(function(result) {
+    console.log(`Factorial ${ number } = ${ result }`);
+  });
